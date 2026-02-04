@@ -16,3 +16,13 @@ spec:
   - client auth
 EOF
 ```
+
+```
+# Approve CSR and extract signed certificate
+kubectl certificate approve dev-user-csr              # approve CSR as cluster admin
+```
+```
+kubectl get csr dev-user-csr \
+  -o jsonpath='{.status.certificate}' | base64 -d \
+  > dev-user.crt                                      # decode issued cert into dev-user.crt
+```
