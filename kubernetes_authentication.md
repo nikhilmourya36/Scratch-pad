@@ -25,3 +25,20 @@ kubectl certificate approve dev-user-csr              # approve CSR as cluster a
 # decode issued cert into dev-user.crt
 kubectl get csr dev-user-csr -o jsonpath='{.status.certificate}' | base64 -d > dev-user.crt                                      
 ```
+
+```
+sudo kubectl config set-credentials dev-user \
+  --client-certificate=/home/user/dev-user.crt \
+  --client-key=/home/user/dev-user.key                # point kubeconfig user at cert/key pair
+```
+
+```
+sudo kubectl config set-context dev-user-context \
+  --cluster=default \
+  --user=dev-user                                      # new context referencing existing cluster + dev-user
+```
+
+
+
+
+
