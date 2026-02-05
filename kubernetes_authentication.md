@@ -42,8 +42,8 @@ sudo kubectl config set-context dev-user-context \
 # history 
 
 user@4a62a981ad61:~$ history 
-    1  ls 
-    2  openssl genrsa -key -out private.key 2480
+ls 
+openssl genrsa -key -out private.key 2480
     3  openssl genrsa -key -out private.key 
     4  openssl genrsa -h
     5  openssl genrsa -help
