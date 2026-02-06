@@ -1,11 +1,9 @@
 Q 3 K8s sequrity 
 
-# sts yaml file 
-user@e36d08d4ea96:~$ cat statefull.yaml 
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: analytics-engin
+  name: analytics-engine
 spec:
   selector:
     matchLabels:
@@ -27,15 +25,14 @@ spec:
           - -c
           - |
             while true; do 
-             echo "$(date "+%y-%m-%d %H:%M:%S") Process running"> /var/data/process.log
-             echo "$(date "+%y-%m-%d %H:%M:%S") Log entry"> /var/log/app.log
+             echo "$(date "+%y-%m-%d %H:%M:%S") Process running">>/var/data/process.log
+             echo "$(date "+%y-%m-%d %H:%M:%S") Log entry">>/var/log/app.log
              sleep 15
             done
 
         volumeMounts:
         - name: data-volume
           mountPath: /var/data
-        volumeMounts:
         - name: logs-volume
           mountPath: /var/log
   
@@ -52,7 +49,7 @@ spec:
 
         volumeMounts:
         - name: logs-volume
-          mountPath: /var/log/app.log
+          mountPath: /var/log
 
   volumeClaimTemplates:
   - metadata:
