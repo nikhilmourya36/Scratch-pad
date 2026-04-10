@@ -41,3 +41,7 @@ spec:
 ```yaml
 kubectl expose deployment blue-app --name=blue-service --port=80 --target-port=80
 ```
+
+```yaml
+kubectl create ingress fanout-ingress --rule="/blue=blue-service:80" --rule="/green=green-service:80" 
+```
