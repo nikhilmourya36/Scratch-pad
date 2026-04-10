@@ -47,7 +47,7 @@ kubectl create ingress fanout-ingress --rule="/blue=blue-service:80" --rule="/gr
 ```
 
 
-'''bash
+```bash
 user@59bce2a5f41b:~$ k get deployment 
 NAME        READY   UP-TO-DATE   AVAILABLE   AGE
 blue-app    1/1     1            1           26m
@@ -372,4 +372,4 @@ user@59bce2a5f41b:~$ curl -l http://172.20.0.2/blue
 </html>
 user@59bce2a5f41b:~$ ^C
 user@59bce2a5f41b:~$ 
-'''
+```
