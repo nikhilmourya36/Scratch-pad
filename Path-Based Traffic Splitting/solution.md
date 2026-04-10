@@ -37,3 +37,7 @@ spec:
         - name: html-volume
           emptyDir: {}
 ```
+
+```yaml
+kubectl expose deployment blue-app --name=blue-service --port=80 --target-port=80
+```
