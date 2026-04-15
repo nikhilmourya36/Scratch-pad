@@ -11,6 +11,11 @@ kubectl expose deployment billing-app --name=billing-service --port=80 --target-
 ```
 
 ```bash
+openssl req -help 2>&1 | grep -i "subject\|days\|key\|x509\|nodes"
+```
+
+```bash
 # Generate certs
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=billing.company.com"
 ```
+
