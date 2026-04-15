@@ -19,3 +19,6 @@ openssl req -help 2>&1 | grep -i "subject\|days\|key\|x509\|nodes"
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=billing.company.com"
 ```
 
+```bash
+kubectl create secret tls billing-tls-secret --cert=tls.crt --key=tls.key
+```
