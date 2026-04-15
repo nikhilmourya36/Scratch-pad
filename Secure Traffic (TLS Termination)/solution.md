@@ -22,3 +22,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt
 ```bash
 kubectl create secret tls billing-tls-secret --cert=tls.crt --key=tls.key
 ```
+
+```bash
+kubectl create ingress secure-ingress --rule="billing.company.com/=billing-service:80,tls=billing-tls-secret" --dry-run=client -o yaml
+```
