@@ -26,3 +26,7 @@ kubectl create secret tls billing-tls-secret --cert=tls.crt --key=tls.key
 ```bash
 kubectl create ingress secure-ingress --rule="billing.company.com/=billing-service:80,tls=billing-tls-secret" --dry-run=client -o yaml
 ```
+
+```bash
+curl -k --resolve billing.company.com:443:<NODE_IP> https://billing.company.com/
+```
